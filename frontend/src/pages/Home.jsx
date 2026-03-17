@@ -1,0 +1,42 @@
+import React from 'react'
+import Nav from '../components/Nav'
+import home1 from "../assets/home1.jpg"
+import { SiViaplay } from "react-icons/si";
+import ai from "../assets/ai.png"
+import ai1 from "../assets/SearchAi.png"
+import Logos from '../components/Logos';
+import ExploreCourses from '../components/ExploreCourses';
+import Cardspage from '../components/CardPage';
+import About from '../components/About';
+import Footer from '../components/Footer';
+import ReviewPage from '../components/ReviewPage';
+import { useNavigate } from 'react-router-dom';
+
+
+
+function Home() {
+  const navigate = useNavigate();
+  return (
+    <div className='w-full overflow-hidden'>
+      <div className='w-full lg:h-[140vh] h-[70vh] relative'>
+        <Nav/>
+        <img src={home1} className='object-cover md:object-fill w-full lg:h-full h-[50vh]' alt=""/>
+        <span className='lg:text-[70px] absolute md:text-[40px] lg:top-[10%] top-[15%] w-full flex items-center justify-center text-white font-bold text-[20px]'>Grow Your Skills to Advance</span>
+        <span className='lg:text-[70px] md:text-[40px]  text-[20px] absolute lg:top-[18%] top-[20%] w-full flex items-center justify-center text-white font-bold'>Your Career path</span>
+        <div className='absolute lg:top-[30%] top-[75%] md:top-[80%] w-full flex items-center justify-center gap-3 flex-wrap'>
+          <button className='px-5 py-2.5 border-2 lg:border-white border-black lg:text-white text-black rounded-[10px] text-[18px] font-light flex gap-2 cursor-pointer'onClick={()=>navigate("/allcourses")}>View All Courses  <SiViaplay className='w-7.5 h-7.5 lg:fill-white fill-black' /></button>
+          <button className='px-5 py-2.5  lg:bg-white bg-black lg:text-black text-white rounded-[10px] text-[18px] font-light flex gap-2 cursor-pointer items-center justtify-center' onClick={()=>navigate("/searchwithai")}>Search With Ai <img src={ai} className='w-7.5 h-7.5 rounded-full hidden lg:block'alt=""/><img src={ai1} className='w-8.75 h-8.75 rounded-full lg:hidden'alt=""/></button>
+
+        </div>
+        </div>
+        <Logos/>
+        <ExploreCourses/>
+        <Cardspage/>
+        <About />
+        <Footer/>
+        <ReviewPage />
+    </div>
+  )
+}
+
+export default Home
